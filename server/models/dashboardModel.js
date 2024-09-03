@@ -19,6 +19,25 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
+const tasks = new Schema({
+  task : {
+    type : String,
+    required : true
+  },
+  startTime : {
+    type : Date,
+    default : () => Date.now()
+  },
+  endTime : {
+    type : Date,
+    default : () => Date.now()
+  },
+  status : {
+    type : String,
+    default : "New"
+  }
+})
+
 const projects = new Schema({
   projectName : {
     type : String,
@@ -32,25 +51,8 @@ const projects = new Schema({
     type : String,
     required : true
   },
-  task : {
-    type : String,
-    required : true
-  },
-  descriprtion : {
-    type : String
-  },
-  startTime : {
-    type : String,
-    required : true
-  },
-  endTime : {
-    type : String,
-    default : () => Date.now()
-  },
-  status : {
-    type : String,
-    default : () => Date.now()
-  }
+  tasks : [tasks]
+  
 });
 
 module.exports = mongoose.model('projects', projects)
