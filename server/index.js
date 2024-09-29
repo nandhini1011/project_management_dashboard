@@ -4,6 +4,8 @@ const express = require("express");
 //setting up express app
 const app =express();
 
+const bodyParser = require("body-parser");
+
 //Define port
 const PORT = 8080
 
@@ -15,6 +17,11 @@ app.use((req, res, next) => {
     console.log(req.path , req.method);
     next();
 })
+
+// Body-parser middleware
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
 
 //importing Router
 const dashboardRoutes = require('./routes/dashboardRoutes.js');

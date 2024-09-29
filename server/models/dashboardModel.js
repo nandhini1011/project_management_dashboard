@@ -51,6 +51,9 @@ const projects = new Schema({
     type : String,
     required : true
   },
+  description : {
+    type : String,
+  },
   tasks : [tasks]
   
 });

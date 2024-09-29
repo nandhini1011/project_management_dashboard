@@ -9,7 +9,7 @@ const {
     updateProject,
 } = require("../controller/dashboardController");
 
-router.post("/project/:id", createProject);
+router.post("/project", createProject);
 
 router.get("/project/:id", getProject);
 
