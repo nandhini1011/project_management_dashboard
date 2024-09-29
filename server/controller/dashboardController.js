@@ -26,7 +26,7 @@ const createTask = async (req, res) => {
         const {id} = req.params;
         const project = await projects.findById(id);
         project.tasks.push(req.body);
-        req.status(200).json(project);
+        res.status(200).json(project);
     }catch(error){
         console.log(error.message);
         res.status(400).json({ error : error.message});
