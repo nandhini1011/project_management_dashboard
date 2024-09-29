@@ -21,7 +21,7 @@ const createProject = async (req , res) => {
     }
 }
 
-const createtask = async (req, res) => {
+const createTask = async (req, res) => {
     try{
         const {id} = req.params;
         const project = await projects.findById(id);
@@ -79,6 +79,7 @@ const updateProject = async (req, res) => {
 
 module.exports = {
     createProject,
+    createTask,
     getProject,
     getAllProject,
     deleteProject,

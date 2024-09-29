@@ -3,6 +3,7 @@ const router = express.Router();
 
 const { 
     createProject,
+    createTask,
     getProject,
     getAllProject,
     deleteProject,
@@ -10,6 +11,8 @@ const {
 } = require("../controller/dashboardController");
 
 router.post("/project", createProject);
+
+router.patch("/project/:id",createTask);
 
 router.get("/project/:id", getProject);
 
